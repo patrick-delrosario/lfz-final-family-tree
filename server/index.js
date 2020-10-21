@@ -298,7 +298,7 @@ app.put('/api/treeLibrary/:treeId?', (req, res, next) => {
     });
 });
 
-app.put('/api/profiles/:profileId?', (req, res, next) => {
+app.patch('/api/profiles/:profileId?', (req, res, next) => {
   const { profileId } = req.params;
   const params = [
     parseInt(req.body.familyId),

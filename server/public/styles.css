@@ -1,0 +1,110 @@
+body {
+  background-color: rgba(247, 244, 244, 0.945);
+}
+
+nav {
+  color: white;
+}
+
+h5 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+  display: inline;
+  color: white;
+  padding-left: 5px;
+}
+
+.container {
+  background-color: white;
+}
+
+img {
+  width: 18rem;
+  object-fit: contain;
+}
+
+.card-img-top {
+  height: 18rem;
+}
+
+.card {
+  width: 18rem;
+  box-shadow: 3px 3px 10px #888888
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.03)
+}
+
+.row {
+  padding-top: 15px;
+}
+
+.hover {
+  color: rgb(108,117,167);
+}
+
+.hover:hover {
+  cursor: pointer;
+  color: rgb(52,58,64);
+}
+
+.card-deck {
+  margin-bottom: 0px 10px;
+}
+
+.col-4 {
+  margin-bottom: 15px;
+}
+
+.fa-book-open {
+  padding-top: 4px;
+  padding-left: 7px;
+}
+
+.center  {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.detailbox {
+  margin: 25px;
+}
+
+/*Modal*/
+.bigSquare {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -5,56 +5,41 @@ const db = new pg.Pool({
 });
 
 const getUser = `
-  select "firstName",
-         "lastName",
-         "email",
-         "password"
+  select *
   from "userAccount"
   where "userId" = $1;
 `;
 
 const getAllFamilies = `
-  select "name"
+  select *
   from "familyLibrary";
 `;
 
 const getFamily = `
-  select "name"
+  select *
   from "familyLibrary"
   where "familyId" = $1;
 `;
 
 const getAllTrees = `
-  select "name"
+  select *
   from "treeLibrary";
 `;
 
 const getTree = `
-  select "name"
+  select *
   from "treeLibrary"
   where "treeId" = $1;
 `;
 
 const getAllProfiles = `
-  select "firstName",
-         "lastName",
-         "age",
-         "birthMonth",
-         "birthYear",
-         "gender",
-         "deceased",
-         "birthPlace",
-         "phoneNumber",
-         "email"
-  from profiles;
+  select *
+  from profiles
+  order by "profileId"
 `;
 
 const getProfile = `
-  select "firstName",
-         "lastName",
-         "age",
-         "birthMonth",
-         "birthYear"
+  select *
   from profiles
   where "profileId" = $1;
 `;
