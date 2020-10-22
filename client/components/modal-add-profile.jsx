@@ -14,7 +14,7 @@ class ModalP extends React.Component {
         birthMonth: '',
         birthYear: '',
         gender: '',
-        deceased: false,
+        deceased: '',
         birthPlace: '',
         phoneNumber: '',
         email: '',
