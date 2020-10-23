@@ -189,7 +189,7 @@ class ModalP extends React.Component {
                   Image:
                     <input
                       name="image"
-                      type="text"
+                      type="file"
                       value={this.state.modal.image}
                       onChange={this.handleChange} />
                   </label>
