@@ -36,6 +36,10 @@ class FamilyList extends React.Component {
       <>
         <div className="center">
           <h1>Family Members</h1>
+          <form action="/uploadFile" method="post" encType="multipart/form-data">
+            <input type="file" name="userFile" />
+            <input type="submit" />
+          </form>
           <span>
             <ModalP
               getProfiles={this.getProfiles} />

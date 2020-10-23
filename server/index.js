@@ -1,5 +1,6 @@
 require('dotenv/config');
 const express = require('express');
+const multer = require('multer');
 
 const db = require('./database');
 const ClientError = require('./client-error');
@@ -10,8 +11,27 @@ const app = express();
 
 app.use(staticMiddleware);
 app.use(sessionMiddleware);
-
 app.use(express.json());
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './server/public/images');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now());
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/uploadFile', upload.single('userFile'), (req, res) => {
+  upload(req, res, err => {
+    if (err) {
+      res.status(400).send('Error Uploading File');
+    }
+    res.send(req.file);
+  });
+});
 
 app.get('/api/health-check', (req, res, next) => {
   db.query('select \'successfully connected\' as "message"')
