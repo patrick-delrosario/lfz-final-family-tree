@@ -6,6 +6,10 @@ nav {
   color: white;
 }
 
+h1 {
+  color: maroon;
+}
+
 h5 {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
   display: inline;

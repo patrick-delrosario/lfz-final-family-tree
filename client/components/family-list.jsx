@@ -35,7 +35,7 @@ class FamilyList extends React.Component {
     return (
       <>
         <div className="center">
-        Family Members
+          <h1>Family Members</h1>
           <span>
             <ModalP
               getProfiles={this.getProfiles} />
