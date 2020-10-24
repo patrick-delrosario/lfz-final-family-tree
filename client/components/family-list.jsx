@@ -34,17 +34,23 @@ class FamilyList extends React.Component {
     );
     return (
       <>
-        <div className="center">
-        Family Members
-          <span>
-            <ModalP
-              getProfiles={this.getProfiles} />
-          </span>
-        </div>
         <div className="container">
+          <div className="row">
+            <h3 className="col"><strong>Family Members</strong></h3>
+            <div className="add-item col">
+              <ModalP
+                getProfiles={this.getProfiles} />
+            </div>
+          </div>
+          <hr></hr>
           <div className="row">
             {map}
           </div>
+          <form className="add-item" action="/upload" method="POST" encType="multipart/form-data">
+            <span>File</span>
+            <input name="myImage" type="file" />
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </>
     );

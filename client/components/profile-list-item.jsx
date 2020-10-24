@@ -1,5 +1,4 @@
 import React from 'react';
-import DeleteProfile from './delete-profile';
 import EditProfile from './edit-profile';
 
 class ProfileList extends React.Component {
@@ -16,20 +15,10 @@ class ProfileList extends React.Component {
     return <>
       <div className="col-4 d-flex justify-content-around">
         <div className="card">
-          <div>
-            <EditProfile
-              key={this.props.profile.profileId}
-              profile={this.props.profile}
-              getProfiles={this.props.getProfiles}/>
-          </div>
+          <h6 className="card-title center"><strong>{this.props.profile.firstName} {this.props.profile.lastName}</strong></h6>
           <img src={this.props.profile.image} className="card-img-top" onClick={this.handleClick}></img>
-          <div className="card-body">
-            <h6 className="card-title">{this.props.profile.firstName} {this.props.profile.lastName}</h6>
-            <p className="card-subtitle mb-2 text-muted">Age: {this.props.profile.age}</p>
-            <p className="card-text">{this.props.profile.birthMonth} {this.props.profile.birthYear}</p>
-          </div>
           <button>
-            <DeleteProfile
+            <EditProfile
               key={this.props.profile.profileId}
               profile={this.props.profile}
               getProfiles={this.props.getProfiles} />

@@ -69,7 +69,7 @@ class EditProfile extends React.Component {
       return (
         <>
           <div onClick={this.handleClick}>
-            EDIT
+            EDIT <i className="far fa-edit"></i>
           </div>
         </>
       );
@@ -176,7 +176,7 @@ class EditProfile extends React.Component {
                     Image:
                     <input
                       name="image"
-                      type="file"
+                      type="text"
                       value={this.state.modal.image}
                       onChange={this.handleChange} />
                   </label>

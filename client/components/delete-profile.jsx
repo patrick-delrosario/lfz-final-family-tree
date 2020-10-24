@@ -7,7 +7,6 @@ class DeleteProfile extends React.Component {
   }
 
   handleClick() {
-    /* alert('Profile Deleted'); */
     const id = this.props.profile.profileId;
     const postProfile = {
       method: 'Delete',
@@ -25,8 +24,8 @@ class DeleteProfile extends React.Component {
   render() {
     return (
       <>
-        <div onClick={this.handleClick}>
-          Delete
+        <div className="btn-delete" onClick={this.handleClick}>
+          DELETE <i className="fas fa-times"></i>
         </div>
       </>
     );
