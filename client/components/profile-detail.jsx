@@ -1,4 +1,6 @@
 import React from 'react';
+import EditProfile from './edit-profile';
+import DeleteProfile from './delete-profile';
 
 class ProfileDetails extends React.Component {
   constructor(props) {
@@ -36,14 +38,30 @@ class ProfileDetails extends React.Component {
           <div>
             <img src={this.state.profile.image} />
           </div>
-          <div>
-            <h2>{this.state.profile.firstName}</h2>
-            <p>{this.state.profile.LastName}</p>
+          <div className="card-body">
+            <h6 className="card-title">Full Name: {this.state.profile.firstName} {this.state.profile.lastName}</h6>
+            <p className="card-text">Age: {this.state.profile.age}</p>
+            <p className="card-text">Birthday: {this.state.profile.birthMonth} {this.state.profile.birthYear}</p>
+            <p className="card-text">{this.state.profile.gender}</p>
+            <p className="card-text">{this.state.profile.deceased}</p>
+            <p className="card-text">{this.state.profile.birthPlace}</p>
+            <p className="card-text">{this.state.profile.phoneNumber}</p>
+            <p className="card-text">{this.state.profile.email}</p>
           </div>
         </div>
-        <div className="row center">
-          <p className="detailbox">{this.state.profile.age}</p>
-        </div>
+        <br />
+        <button>
+          <EditProfile
+            key={this.state.profile.profileId}
+            profile={this.state.profile}
+            getProfiles={this.state.getProfiles} />
+        </button>
+        <button className="btn-delete" onClick={this.handleClick}>
+          <DeleteProfile
+            key={this.state.profile.profileId}
+            profile={this.state.profile}
+            getProfiles={this.state.getProfiles} />
+        </button>
       </div>
     );
   }

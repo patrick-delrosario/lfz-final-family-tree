@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './header';
-import NavBar from './navbar';
 import FamilyList from './family-list';
 import ProfileDetails from './profile-detail';
 
@@ -41,7 +40,6 @@ export default class App extends React.Component {
       return (
         <div>
           <Header />
-          <NavBar />
           <FamilyList
             setView={this.setView}
           />
@@ -51,7 +49,6 @@ export default class App extends React.Component {
       return (
         <div>
           <Header />
-          <NavBar />
           <ProfileDetails
             profile={this.props.profile}
             setView={this.setView}

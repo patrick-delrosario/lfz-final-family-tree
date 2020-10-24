@@ -69,7 +69,7 @@ class EditProfile extends React.Component {
       return (
         <>
           <div onClick={this.handleClick}>
-            EDIT
+            EDIT <i className="far fa-edit"></i>
           </div>
         </>
       );

@@ -1,6 +1,7 @@
 require('dotenv/config');
 const express = require('express');
-const multer = require('multer');
+/* const multer = require('multer');
+const path = require('path'); */
 
 const db = require('./database');
 const ClientError = require('./client-error');
@@ -13,24 +14,50 @@ app.use(staticMiddleware);
 app.use(sessionMiddleware);
 app.use(express.json());
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './server/public/images');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now());
+app.use(express.static('./images'));
+
+/* const storage = multer.diskStorage({
+  destination: './images/uploads/',
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage
+}).single('myImage');
 
-app.post('/uploadFile', upload.single('userFile'), (req, res) => {
-  upload(req, res, err => {
-    if (err) {
-      res.status(400).send('Error Uploading File');
-    }
-    res.send(req.file);
-  });
+app.post('/upload', (req, res) => {
+  res.send('test');
+  console.log('test')
+}) */
+
+app.post('/api/profiles/', (req, res) => {
+  const values = [
+    parseInt(req.body.familyId),
+    parseInt(req.body.treeId),
+    req.body.firstName,
+    req.body.lastName,
+    parseInt(req.body.age),
+    req.body.birthMonth,
+    parseInt(req.body.birthYear),
+    req.body.gender,
+    req.body.deceased,
+    req.body.birthPlace,
+    req.body.phoneNumber,
+    req.body.email,
+    req.body.image
+    /* "./uploads/" + req.file.filename */
+  ];
+  db.query(db.queries.postProfile, values)
+    .then(result => {
+      res.status(201).json(result.rows[0]);
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: err.message
+      });
+    });
 });
 
 app.get('/api/health-check', (req, res, next) => {
@@ -207,33 +234,6 @@ app.post('/api/treeLibrary/', (req, res) => {
     req.body.name
   ];
   db.query(db.queries.postTree, values)
-    .then(result => {
-      res.status(201).json(result.rows[0]);
-    })
-    .catch(err => {
-      res.status(500).json({
-        error: err.message
-      });
-    });
-});
-
-app.post('/api/profiles/', (req, res) => {
-  const values = [
-    parseInt(req.body.familyId),
-    parseInt(req.body.treeId),
-    req.body.firstName,
-    req.body.lastName,
-    parseInt(req.body.age),
-    req.body.birthMonth,
-    parseInt(req.body.birthYear),
-    req.body.gender,
-    req.body.deceased,
-    req.body.birthPlace,
-    req.body.phoneNumber,
-    req.body.email,
-    req.body.image
-  ];
-  db.query(db.queries.postProfile, values)
     .then(result => {
       res.status(201).json(result.rows[0]);
     })

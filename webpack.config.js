@@ -38,5 +38,6 @@ module.exports = {
     },
     stats: 'minimal',
     watchContentBase: true
-  }
+  },
+  watchOptions: { ignored: /images/ }
 };

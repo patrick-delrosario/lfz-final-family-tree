@@ -37,13 +37,11 @@ class ModalP extends React.Component {
     const currentState = modal;
     const { name, value } = event.target;
     currentState[name] = value;
-
     this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    alert('You added a new profile');
     const postProfile = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -81,123 +79,110 @@ class ModalP extends React.Component {
     if (!this.state.isClicked) {
       return (
         <>
-          <div onClick={this.handleClick}>
-            OFF
-          </div>
+          <button onClick={this.handleClick}>
+            <i className="fas fa-plus"><strong> Member</strong></i>
+          </button>
         </>
       );
     } else {
       return (
         <>
-          <div>
-            <div className="bigSquare">
-              <div className="modal-content">
-                <span className="close" onClick={this.handleClick}>&times;</span>
-                <div>Add Profile</div>
-                <form onSubmit={this.handleSubmit}>
-                  <label>
-                  First Name:
-                    <input
-                      name="firstName"
-                      type="text"
-                      value={this.state.modal.firstName}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Last Name:
-                    <input
-                      name="lastName"
-                      type="text"
-                      value={this.state.modal.lastName}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Age:
-                    <input
-                      name="age"
-                      type="number"
-                      value={this.state.modal.age}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Birth Month:
-                    <input
-                      name="birthMonth"
-                      type="text"
-                      value={this.state.modal.birthMonth}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Birth Year:
-                    <input
-                      name="birthYear"
-                      type="number"
-                      value={this.state.modal.birthYear}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Gender:
-                    <input
-                      name="gender"
-                      type="text"
-                      value={this.state.modal.gender}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Deceased:
-                    <input
-                      name="deceased"
-                      type="text"
-                      value={this.state.modal.deceased}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Birth Place:
-                    <input
-                      name="birthPlace"
-                      type="text"
-                      value={this.state.modal.birthPlace}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Phone Number:
-                    <input
-                      name="phoneNumber"
-                      type="text"
-                      value={this.state.modal.phoneNumber}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Email:
-                    <input
-                      name="email"
-                      type="text"
-                      value={this.state.modal.email}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <label>
-                  Image:
-                    <input
-                      name="image"
-                      type="text"
-                      value={this.state.modal.image}
-                      onChange={this.handleChange} />
-                  </label>
-                  <br />
-                  <input type="submit" value="Submit"/>
-                </form>
+          <button onClick={this.handleClick}>
+            <i className="fas fa-plus"><strong> Member</strong></i>
+          </button>
+
+          <div className="bigSquare">
+            <div className="container">
+              <div className="row">
+                <div className="col-6"><strong>Add Profile</strong></div>
+                <div className="close col-6" onClick={this.handleClick}>&times;</div>
               </div>
             </div>
+
+            <form className="container" onSubmit={this.handleSubmit}>
+              <div className="row">
+                <label className="col-6">
+              First Name:
+                  <input
+                    name="firstName" type="text"
+                    value={this.state.modal.firstName}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+              Last Name:
+                  <input
+                    name="lastName" type="text"
+                    value={this.state.modal.lastName}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                  Age:
+                  <input
+                    name="age" type="number"
+                    value={this.state.modal.age}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                  Birth Month:
+                  <input
+                    name="birthMonth" type="text"
+                    value={this.state.modal.birthMonth}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Birth Year:
+                  <input
+                    name="birthYear" type="number"
+                    value={this.state.modal.birthYear}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Gender:
+                  <input
+                    name="gender" type="text"
+                    value={this.state.modal.gender}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Deceased:
+                  <input
+                    name="deceased" type="text"
+                    value={this.state.modal.deceased}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Birth Place:
+                  <input
+                    name="birthPlace" type="text"
+                    value={this.state.modal.birthPlace}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Phone Number:
+                  <input
+                    name="phoneNumber" type="text"
+                    value={this.state.modal.phoneNumber}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Email:
+                  <input
+                    name="email" type="text"
+                    value={this.state.modal.email}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                Image:
+                  <input
+                    name="image" type="text"
+                    value={this.state.modal.image}
+                    onChange={this.handleChange} />
+                </label>
+                <label className="col-6">
+                  <input type="submit" value="Submit"/>
+                </label>
+              </div>
+            </form>
           </div>
         </>
       );
